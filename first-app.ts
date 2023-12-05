@@ -40,3 +40,41 @@ login(creds);
 
 //using new instance of AuthCredentials class
 login(new AuthCredentials());
+
+type Admin = {
+  permissions: string[];
+};
+
+type AppUser = {
+  username: string;
+};
+
+//this is a combination of Admin and AppUser
+//using & merges these types
+type AppAdmin = Admin & AppUser;
+
+//admin must have all types from these two
+let admin: AppAdmin;
+
+admin = {
+  permissions: ['login'],
+  username: 'michael',
+};
+
+//can also merge using interface
+interface Admin2 {
+  permissions: string[];
+}
+
+interface AppUser2 {
+  username: string;
+}
+
+interface AppAdmin2 extends Admin, AppUser {}
+
+let admin2: AppAdmin2;
+
+admin2 = {
+  permissions: ['login'],
+  username: 'michael',
+};

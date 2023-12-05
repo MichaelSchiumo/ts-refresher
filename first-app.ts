@@ -78,3 +78,10 @@ admin2 = {
   permissions: ['login'],
   username: 'michael',
 };
+
+//using literal types
+//ex when you only want the string value to be certain string literals
+let role: 'admin' | 'user' | 'editor'; // 'admin', 'user', 'editor';
+
+//role can only be one of the above values
+role = 'm';
